@@ -7,6 +7,8 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
+import { Projects } from './collections/Projects'
+
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 
@@ -20,7 +22,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Projects, Users, Media],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -30,6 +32,30 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   sharp,
+  localization: {
+    locales: [
+      {
+        code: 'en',
+        label: 'English',
+      },
+      {
+        code: 'en-US',
+        label: 'English (American)',
+        fallbackLocale: 'en',
+      },
+      {
+        code: 'en-CA',
+        label: 'English (Canadian)',
+        fallbackLocale: 'en',
+      },
+      {
+        code: 'es',
+        label: 'Spanish',
+      },
+    ],
+    defaultLocalePublishOption: 'active',
+    fallback: true,
+  },
   plugins: [
     payloadCloudPlugin(),
     // storage-adapter-placeholder
