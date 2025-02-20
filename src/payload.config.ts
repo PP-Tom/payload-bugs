@@ -41,19 +41,19 @@ export default buildConfig({
       {
         code: 'en-US',
         label: 'English (American)',
-        fallbackLocale: 'en',
       },
       {
         code: 'en-CA',
         label: 'English (Canadian)',
-        fallbackLocale: 'en',
       },
       {
         code: 'es',
         label: 'Spanish',
+        fallbackLocale: 'es',
       },
     ],
     defaultLocalePublishOption: 'active',
+    defaultLocale: 'en',
     fallback: true,
   },
   plugins: [
